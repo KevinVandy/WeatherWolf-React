@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {Fragment} from 'react';
+import SearchBar from '../layout/SearchBar';
+import SearchResult from '../layout/SearchResult';
 
 const Home = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Fragment>
+      <SearchBar />
+      <SearchResult />
+    </Fragment>
+  );
+};
 
-export default Home
+export default Home;

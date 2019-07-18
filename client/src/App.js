@@ -1,5 +1,5 @@
 //import React and React components
-import React, { Component, useEffect, useContext, Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //import pages for routes
@@ -8,7 +8,6 @@ import Weather from './components/pages/Weather';
 import NotFound from './components/pages/NotFound';
 
 //import State
-import AccountState from './context/account/AccountState';
 import WeatherState from './context/weather/WeatherState';
 
 //import components
