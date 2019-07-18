@@ -1,40 +1,43 @@
+//import React and React components
 import React, { Component, useEffect, useContext, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import AppNav from './components/AppNav';
 
-import { CLIENT_VERSION, REACT_VERSION, SERVER_URL } from './config';
-import 'whatwg-fetch';
-import Footer from "./components/Footer";
+//import pages for routes
+import Home from './components/pages/Home';
+import Weather from './components/pages/Weather';
+import NotFound from './components/pages/NotFound';
+
+//import State
+import AccountState from './context/account/AccountState';
+import WeatherState from './context/weather/WeatherState';
+
+//import components
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+
+//import styles
+import './css/App.css';
+
 
 const App = () => {
-
-  state = {
-    serverInfo: {},
-    clientInfo: {
-      version: CLIENT_VERSION,
-      react: REACT_VERSION
-    },
-    collapse: false
-  }
-
-  useEffect(() => {
-    fetch(SERVER_URL + '/application')
-      .then(r => r.json())
-      .then(json => this.setState({ serverInfo: json }))
-      .catch(error => console.error('Error connecting to server: ' + error));
-  }, [])
-
-  const { serverInfo, clientInfo, collapse } = this.state;
-
   return (
-    <Fragment>
-      <AppNav />
-      <p>WeatherWolf</p>
-      <Footer key={ 3 } />
-    </Fragment>
-
+    <WeatherState>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Switch>
+              <Route exact path='/' component={ Home } />
+              <Route exact path='/home' component={ Home } />
+              <Route exact path='/weather' component={ Weather } />
+              <Route component={ NotFound } />
+            </Switch>
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </WeatherState>
   );
-}
-
+};
 
 export default App;

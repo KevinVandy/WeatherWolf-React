@@ -1,11 +1,3 @@
-import React from 'react'
-
-const accountContext = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default accountContext
+import { createContext } from 'react';
+const accountContext = createContext();
+export default accountContext;

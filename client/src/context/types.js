@@ -1,0 +1,2 @@
+export const SET_LOADING = 'SET_LOADING';
+export const SEARCH_WEATHER = 'SEARCH_WEATHER';
