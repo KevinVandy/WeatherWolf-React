@@ -21,7 +21,7 @@ const SearchBar = () => {
     <form className="form" onSubmit={ onSubmit }>
       <div className="grid-2">
         <input type="text" name="text" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } required />
-        <select name="units">
+        <select name="units" style={ { display: 'inline' } }>
           <option value="F" selected>F&deg;</option>
           <option value="C">C&deg;</option>
         </select>
