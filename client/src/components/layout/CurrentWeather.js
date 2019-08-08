@@ -10,7 +10,7 @@ const CurrentWeather = (info) => {
     <div id="currentWeather" className="card p-1 m-1">
       <div className="grid-2">
         <div className="all-center">
-          <img src={ icon } style={ { width: '100px' } } />
+          <img src={ icon } alt={ icon } style={ { width: '100px' } } />
           <p>{ text }</p>
           <div className="grid-2">
             <div className="m-1">

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, Fragment } from 'react';
+import React, { useEffect, useContext} from 'react';
 import Spinner from '../layout/Spinner';
 import WeatherContext from '../../context/weather/weatherContext';
 import CurrentWeather from './CurrentWeather';
@@ -23,16 +23,16 @@ const SearchResult = (searchText) => {
     );
   } else if (weather.location == null) {
     return (
-      <Fragment>
+      <>
 
-      </Fragment>
+      </>
     );
   } else {
     return (
-      <Fragment>
+      <>
         <CurrentWeather location={ location } current={ current } />
         <Forecast forecast={ forecast } />
-      </Fragment>
+      </>
     );
   }
 };

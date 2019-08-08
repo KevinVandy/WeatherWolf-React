@@ -6,8 +6,6 @@ import { Auth0Provider } from "./Auth0Wrapper";
 import config from "./auth_config.json";
 import './css/App.css';
 
-//ReactDOM.render(<App />, document.getElementById('root'));
-
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = appState => {

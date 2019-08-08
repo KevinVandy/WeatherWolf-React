@@ -26,6 +26,14 @@ import Spinner from './components/layout/Spinner';
 
 const App = () => {
 
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return (
+      <Spinner />
+    );
+  }
+
   return (
     <WeatherState>
       <Router>

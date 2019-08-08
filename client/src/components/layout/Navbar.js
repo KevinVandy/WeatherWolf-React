@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from "../../Auth0Wrapper";
 
@@ -14,21 +14,14 @@ const Navbar = () => {
             <Link to='/home'>Home</Link>
           </li>
           { !isAuthenticated &&
-            (
-              <li>
-                <a href="#" onClick={ () => loginWithRedirect({}) } >Log in </a>
-              </li>
-            )
+            <li onClick={ () => loginWithRedirect({}) } >Log in</li>
           }
-
           { isAuthenticated &&
             <>
               <li>
                 <Link to="/account">Account</Link>
               </li>
-              <li>
-                <a onClick={ () => logout() }>Log out</a>
-              </li>
+              <li onClick={ () => logout() }>Log out</li>
             </>
           }
         </ul>

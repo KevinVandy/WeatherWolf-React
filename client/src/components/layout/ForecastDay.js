@@ -13,7 +13,7 @@ const ForecastDay = (info) => {
       <hr />
       <div className="grid-2">
         <div>
-          <img src={ icon } style={ { float: 'left', width: '75px' } } />
+          <img src={ icon } alt={ icon } style={ { float: 'left', width: '75px' } } />
         </div>
         <div className="text-center-inline">
           { text }
