@@ -1,4 +1,4 @@
-import React, { useEffect, useContext} from 'react';
+import React, { useEffect, useContext } from 'react';
 import Spinner from '../layout/Spinner';
 import WeatherContext from '../../context/weather/weatherContext';
 import CurrentWeather from './CurrentWeather';
@@ -24,16 +24,21 @@ const SearchResult = (searchText) => {
   } else if (weather.location == null) {
     return (
       <>
-
       </>
     );
-  } else {
+  } else if (weather.location != null) {
     return (
       <>
         <CurrentWeather location={ location } current={ current } />
         <Forecast forecast={ forecast } />
       </>
     );
+  } else {
+    return (
+      <div className="card">
+        <p className="alert-danger">Invalid Search</p>
+      </div>
+    )
   }
 };
 

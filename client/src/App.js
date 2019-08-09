@@ -8,7 +8,7 @@ import PrivateRoute from "./components/PrivateRoute";
 
 //import pages for routes
 import Home from './components/pages/Home';
-import Weather from './components/pages/Weather';
+//import Weather from './components/pages/Weather';
 import Account from "./components/pages/Account"
 import NotFound from './components/pages/NotFound';
 
@@ -43,7 +43,6 @@ const App = () => {
             <Switch>
               <Route exact path='/' component={ Home } />
               <Route exact path='/home' component={ Home } />
-              <Route exact path='/weather' component={ Weather } />
               <PrivateRoute path='/account' component={ Account } />
               <Route component={ NotFound } />
             </Switch>

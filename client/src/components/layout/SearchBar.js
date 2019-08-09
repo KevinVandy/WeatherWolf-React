@@ -1,13 +1,17 @@
 import React, { useState, useContext } from 'react';
+import LocationContext from '../../context/location/locationContext';
 import WeatherContext from '../../context/weather/weatherContext';
-import Autocomplete from "react-async-autocomplete";
+import { asyncContainer, Typeahead, AsyncTypeahead } from 'react-bootstrap-typeahead';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 const SearchBar = () => {
 
+  const locationContext = useContext(LocationContext);
   const weatherContext = useContext(WeatherContext);
 
-  const [text, setText] = useState('');
+  //const { loading, locations } = locationContext;
 
+  const [text, setText] = useState('');
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -25,13 +29,8 @@ const SearchBar = () => {
         <tbody>
           <tr>
             <td>
-              <input type="text" name="text" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } required />
-              <Autocomplete
-                ref="autocomplete"
-                renderItem={ MyItemView }
-                onChange={ onChange }
-                onSelect={ onSelect }
-              />
+              <input type="text" name="location" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } style={ { minWidth: '300px' } } required />
+
             </td>
             <td>
               <select name="units">
