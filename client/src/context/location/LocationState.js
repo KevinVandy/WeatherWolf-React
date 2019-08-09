@@ -12,10 +12,10 @@ const searchCountryBASE = 'http://localhost:9999/location/searchcountry';
 const LocationState = (props) => {
 
   const initialState = {
-    locations: {},
-    cities: {},
-    stateProvinces: {},
-    countries: {},
+    locations: [],
+    cities: [],
+    stateProvinces: [],
+    countries: [],
     loading: false
   };
 

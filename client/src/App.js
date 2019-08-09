@@ -22,6 +22,7 @@ import Footer from './components/layout/Footer';
 //import styles
 import './css/App.css';
 import Spinner from './components/layout/Spinner';
+import LocationState from './context/location/LocationState';
 
 
 const App = () => {
@@ -35,22 +36,24 @@ const App = () => {
   }
 
   return (
-    <WeatherState>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Switch>
-              <Route exact path='/' component={ Home } />
-              <Route exact path='/home' component={ Home } />
-              <PrivateRoute path='/account' component={ Account } />
-              <Route component={ NotFound } />
-            </Switch>
+    <LocationState>
+      <WeatherState>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <div className="container">
+              <Switch>
+                <Route exact path='/' component={ Home } />
+                <Route exact path='/home' component={ Home } />
+                <PrivateRoute path='/account' component={ Account } />
+                <Route component={ NotFound } />
+              </Switch>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </Router>
-    </WeatherState>
+        </Router>
+      </WeatherState>
+    </LocationState>
   );
 };
 

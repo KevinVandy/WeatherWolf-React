@@ -1,15 +1,13 @@
 import React, { useState, useContext } from 'react';
-import LocationContext from '../../context/location/locationContext';
 import WeatherContext from '../../context/weather/weatherContext';
-import { asyncContainer, Typeahead, AsyncTypeahead } from 'react-bootstrap-typeahead';
-import 'react-bootstrap-typeahead/css/Typeahead.css';
+import LocationContext from '../../context/location/locationContext';
+import Suggestions from './Suggestions';
 
 const SearchBar = () => {
 
-  const locationContext = useContext(LocationContext);
   const weatherContext = useContext(WeatherContext);
-
-  //const { loading, locations } = locationContext;
+  const locationContext = useContext(LocationContext);
+  const { loading, locations, searchLocations } = locationContext;
 
   const [text, setText] = useState('');
 
@@ -20,8 +18,8 @@ const SearchBar = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     weatherContext.searchWeather(text);
-    setText('');
-  }
+    //setText('');
+  };
 
   return (
     <form className="form" onSubmit={ onSubmit }>
@@ -29,14 +27,18 @@ const SearchBar = () => {
         <tbody>
           <tr>
             <td>
-              <input type="text" name="location" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } style={ { minWidth: '300px' } } required />
-
+              <input type="text" name="location" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } style={ { minWidth: '300px' } } required className="typeahead" autoComplete="off" />
             </td>
             <td>
               <select name="units">
                 <option value="F" defaultValue>F&deg;</option>
                 <option value="C">C&deg;</option>
               </select>
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2">
+              <Suggestions text={ text } />
             </td>
           </tr>
           <tr>
