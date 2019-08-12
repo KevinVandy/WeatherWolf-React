@@ -13,7 +13,7 @@ const Account = () => {
 
   return (
     <div className="backcard">
-
+      { user.username }
     </div>
   );
 };

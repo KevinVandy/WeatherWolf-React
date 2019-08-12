@@ -1,23 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import LocationContext from '../../context/location/locationContext';
+import React from 'react';
 import Suggestion from './Suggestion';
 import Spinner from '../layout/Spinner';
 
-const Suggestions = (info) => {
+const Suggestions = ({ text, locations, loading }) => {
 
-  const { text } = info;
-  const locationContext = useContext(LocationContext);
-  const { loading, locations, searchLocations } = locationContext;
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true)
-    return () => {
-      searchLocations(text);
-    };
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true)
+  //   return () => {
+  //     searchLocations(text);
+  //   };
+  //   // eslint-disable-next-line
+  // }, []);
 
   if (loading) {
     return (
@@ -29,20 +22,20 @@ const Suggestions = (info) => {
   } else if (locations == null) {
     return (
       <>
-        { text } null
+        { text }
         No Suggestions
       </>
     );
   } else {
+    console.log(locations);
     return (
       <>
-        <div className>
+        <div className="tt-menu">
           { text }
           <table>
-            { locations.map(s => <tr><td><Suggestion s={ s } key={ s.id } /></td></tr>) }
+            { locations.map(location => <tr><td><Suggestion location={ location } key={ location.id } /></td></tr>) }
           </table>
         </div>
-
       </>
     );
   }

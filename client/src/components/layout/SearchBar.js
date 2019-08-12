@@ -13,12 +13,12 @@ const SearchBar = () => {
 
   const onChange = (e) => {
     setText(e.target.value);
+    searchLocations(text);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
     weatherContext.searchWeather(text);
-    //setText('');
   };
 
   return (
@@ -27,7 +27,7 @@ const SearchBar = () => {
         <tbody>
           <tr>
             <td>
-              <input type="text" name="location" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } style={ { minWidth: '300px' } } required className="typeahead" autoComplete="off" />
+              <input type="text" name="location" placeholder="City, [State/Province], [Country]" value={ text } onChange={ onChange } style={ { minWidth: '300px' } } required autoComplete="off" />
             </td>
             <td>
               <select name="units">
@@ -38,7 +38,7 @@ const SearchBar = () => {
           </tr>
           <tr>
             <td colSpan="2">
-              <Suggestions text={ text } />
+              <Suggestions text={ text } locations={locations} loading={loading} />
             </td>
           </tr>
           <tr>

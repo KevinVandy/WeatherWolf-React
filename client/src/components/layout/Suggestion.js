@@ -1,10 +1,8 @@
 import React from 'react';
 
-const Suggestion = (info) => {
-  const { location } = info;
+const Suggestion = ({ location }) => {
   return (
     <div>
-      { location }
       <strong>{ location.city }</strong>, { location.stateProvince }, { location.country }
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ForecastDay = (info) => {
-  const { fd } = info;
+const ForecastDay = (props) => {
+  const { fd } = props;
   const { date, day } = fd;
   const { condition, maxtemp_f, mintemp_f, totalprecip_in, maxwind_mph } = day;
   const { text, icon } = condition;

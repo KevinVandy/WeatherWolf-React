@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CurrentWeather = (info) => {
-  const { location, current } = info;
+const CurrentWeather = (props) => {
+  const { location, current } = props;
   const { name, region, country } = location;
   const { condition, temp_f, wind_mph, wind_dir, humidity } = current;
   const { text, icon } = condition;

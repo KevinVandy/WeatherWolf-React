@@ -1,8 +1,8 @@
 import React from 'react';
 import ForecastDay from './ForecastDay';
 
-const Forecast = (info) => {
-  const { forecast } = info;
+const Forecast = (props) => {
+  const { forecast } = props;
   const { forecastday } = forecast;
   return (
     <div id="forecast" className="all-center">
