@@ -4,41 +4,24 @@ import Spinner from '../layout/Spinner';
 
 const Suggestions = ({ text, locations, loading }) => {
 
-  // useEffect(() => {
-  //   setIsLoading(true)
-  //   return () => {
-  //     searchLocations(text);
-  //   };
-  //   // eslint-disable-next-line
-  // }, []);
 
-  if (loading) {
-    return (
-      <>
-        { text } loading
-        <Spinner />
-      </>
-    );
-  } else if (locations == null) {
-    return (
-      <>
-        { text }
-        No Suggestions
-      </>
-    );
-  } else {
-    console.log(locations);
-    return (
-      <>
-        <div className="tt-menu">
-          { text }
-          <table>
-            { locations.map(location => <tr><td><Suggestion location={ location } key={ location.id } /></td></tr>) }
-          </table>
-        </div>
-      </>
-    );
-  }
+  return (
+    <>
+      <div className="tt-menu">
+        {
+          (loading) ?
+            <Spinner />
+            :
+            (locations != null && locations.length > 0) ?
+              <table>
+                { locations.map(location => <tr><td><Suggestion location={ location } key={ location.id } /></td></tr>) }
+              </table>
+              : //else
+              <div>No Suggestions for { text }</div>
+        }
+      </div>
+    </>
+  );
 };
 
 export default Suggestions;
